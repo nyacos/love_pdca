@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Tasks</h1>
+<h1>PLAN</h1>
 
 <div id="tasks">
   <% @tasks.each do |task| %>
-    <%= render task %>
     <p>
-      <%= link_to "Show this task", task %>
+    <input type="checkbox" id="checkbox-<%= task.id %>" class="task-checkbox">
+      <%= link_to task.title, task, id: "task-title-#{task.id}" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New task", new_task_path %>
+<%= link_to "New PLAN", new_task_path %>
