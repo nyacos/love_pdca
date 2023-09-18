@@ -12,11 +12,6 @@
   <% end %>
 
   <div>
-    <%= form.label :task_id, style: "display: block" %>
-    <%= form.number_field :task_id %>
-  </div>
-
-  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
@@ -27,6 +22,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create PLAN" %>
   </div>
 <% end %>
