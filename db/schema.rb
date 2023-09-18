@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_17_083311) do
   create_table "tasks", force: :cascade do |t|
-    t.integer "task_id"
     t.string "title"
     t.string "content"
     t.datetime "created_at", null: false
