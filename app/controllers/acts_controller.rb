@@ -27,7 +27,7 @@ class ActsController < ApplicationController
     @act = current_user.acts.build(act_params)
     respond_to do |format|
       if @act.save
-        format.html { redirect_to act_url(@act), notice: "Action was successfully created." }
+        format.html { redirect_to act_url(@act), notice: "Action was successfully created!" }
         format.json { render :show, status: :created, location: @act }
       else
         format.html { render :new, status: :unprocessable_entity }
