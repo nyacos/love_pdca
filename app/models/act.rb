@@ -1,0 +1,2 @@
+class Act < ApplicationRecord
+end
