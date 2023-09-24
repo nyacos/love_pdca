@@ -27,7 +27,7 @@ class ActsController < ApplicationController
     @act = current_user.acts.build(act_params)
     respond_to do |format|
       if @act.save
-        format.html { redirect_to act_url(@act), notice: "Act was successfully created." }
+        format.html { redirect_to act_url(@act), notice: "Action was successfully created." }
         format.json { render :show, status: :created, location: @act }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class ActsController < ApplicationController
   def update
     respond_to do |format|
       if @act.update(act_params)
-        format.html { redirect_to act_url(@act), notice: "Act was successfully updated." }
+        format.html { redirect_to act_url(@act), notice: "Action was successfully updated." }
         format.json { render :show, status: :ok, location: @act }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class ActsController < ApplicationController
     @act.destroy
 
     respond_to do |format|
-      format.html { redirect_to acts_url, notice: "Act was successfully destroyed." }
+      format.html { redirect_to acts_url, notice: "Action was successfully destroyed." }
       format.json { head :no_content }
     end
   end
