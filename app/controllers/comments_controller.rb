@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
+  def index
+    @comments = Comment.where(act_id: @act.id) 
+  end
+  
   def create
-    @comment = current_user.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to act_path(@comment.act), success: t('defaults.message.created', item: Comment.model_name.human)
     else
