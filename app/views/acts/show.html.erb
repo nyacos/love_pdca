@@ -8,3 +8,11 @@
 
   <%= button_to "Destroy this Action", @act, method: :delete %>
 </div>
+
+<div>
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', { act: @act, comment: @comment } %>
+
+  <!-- コメントエリア -->
+  <%= render 'comments/comments', { comments: @comments } %>
+  </div>

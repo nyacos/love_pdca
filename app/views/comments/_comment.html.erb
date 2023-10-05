@@ -1,0 +1,11 @@
+<%= form_with(model: comment) do |form| %>
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit "コメント" %>
+  </div>
+<% end %>
