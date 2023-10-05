@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'admin_login', to: 'sessions#new'
+  post 'admin_login', to: 'sessions#create'
+  delete 'admin_logout', to: 'sessions#destroy'
   get 'comments/create'
   resources :acts do
     resources :comments, only: %i[create], shallow: true
