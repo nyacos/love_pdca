@@ -4,7 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    email = params[:email] # パラメータからemailを取得
+  # ログにセッション情報を表示
+  Rails.logger.debug("Session user_id: #{session[:user_id]}")
+  email = params[:email] # パラメータからemailを取得
   password = params[:password] # パラメータからpasswordを取得
 
   @admin_user = AdminUser.find_by(email: email) # emailを使ってAdminUserを検索
