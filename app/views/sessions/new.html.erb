@@ -1,0 +1,10 @@
+<%= form_with(model: @admin_user, url: admin_login_path) do |f| %>
+  <!-- ログインフォームのフィールドを設定 -->
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit 'ログイン' %>
+<% end %>

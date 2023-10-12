@@ -9,6 +9,9 @@ class ActsController < ApplicationController
 
   # GET /acts/1 or /acts/1.json
   def show
+    @act = Act.find(params[:id])
+    @comment = Comment.new
+    @comments = @act.comments.includes(:user).order(created_at: :desc)
   end
 
   # GET /acts/new
