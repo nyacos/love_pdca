@@ -1,11 +1,5 @@
-<%= form_with(model: comment) do |form| %>
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-  <br>
-
-  <div>
-    <%= form.submit "コメント" %>
-  </div>
-<% end %>
+<tr>
+  <td><%= comment.body %><br><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+  <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+  <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

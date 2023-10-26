@@ -87,3 +87,7 @@ gem "sentry-rails", "~> 5.11"
 gem 'typhoeus'
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'jquery-rails'
+
+gem 'font-awesome-sass'

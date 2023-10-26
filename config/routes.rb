@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   delete 'admin_logout', to: 'sessions#destroy'
   get 'comments/create'
   resources :acts do
-    resources :comments, only: %i[create], shallow: true
+    resources :comments
   end
   root 'static_pages#before_login'
   resources :tasks
+  resources :rooms
   get '/after_login', to: 'static_pages#after_login'
   get 'line_login_api/login', to: 'line_login_api#login'
   get 'line_login_api/callback', to: 'line_login_api#callback'
+  resources :comments
 end

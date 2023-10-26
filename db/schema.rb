@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_134507) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
   create_table "acts", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
@@ -44,6 +44,31 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_134507) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "direct_messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_direct_messages_on_room_id"
+    t.index ["user_id"], name: "index_direct_messages_on_user_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "task_statuses", force: :cascade do |t|
     t.integer "task_id", null: false
     t.integer "user_id", null: false
@@ -71,6 +96,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_134507) do
   add_foreign_key "acts", "users"
   add_foreign_key "comments", "acts"
   add_foreign_key "comments", "users"
+  add_foreign_key "direct_messages", "rooms"
+  add_foreign_key "direct_messages", "users"
+  add_foreign_key "entries", "rooms"
+  add_foreign_key "entries", "users"
   add_foreign_key "task_statuses", "tasks"
   add_foreign_key "task_statuses", "users"
 end
