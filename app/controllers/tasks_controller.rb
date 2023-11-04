@@ -21,27 +21,27 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
+    # パラメータからカテゴリー名を取得
+    category_name = params[:task][:category]
+  
+    # カテゴリー名に対応するCategoryオブジェクトをデータベースから検索
+    category = Category.find_by(name: category_name)
+  
+    # カテゴリーが存在しない場合、新しいカテゴリーを作成
+    unless category
+      category = Category.create(name: category_name)
+    end
+  
+    # タスクを作成する際に正しいカテゴリーオブジェクトを使用
     @task = Task.new(task_params)
-
+    @task.category = Category.find(params[:task][:category_id])
+  
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "PLAN was successfully created." }
+        format.html { redirect_to task_url(@task), notice: "#{category_name.upcase} was successfully created." }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /tasks/1 or /tasks/1.json
-  def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "PLAN was successfully updated." }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +65,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :content)
+      params.require(:task).permit(:title, :content, :category_id)
     end
 end
