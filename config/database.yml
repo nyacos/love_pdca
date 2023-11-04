@@ -5,22 +5,26 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
   timeout: 5000
+  database: d51sk61sh1kdvu
+  host: ec2-3-232-218-211.compute-1.amazonaws.com
 
-development:
+
+# development:
   <<: *default
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: db/test.sqlite3
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
 
 production:
   production:
-  url: <%= ENV['postgres://dabgddwpztyccj:f78a8bceb6fa5d7443d4688e5aecfeee4c5a7985e234e74411728d9e19328501@ec2-3-232-218-211.compute-1.amazonaws.com:5432/d51sk61sh1kdvu'] %>
+    url: <%= ENV['postgres://dabgddwpztyccj:f78a8bceb6fa5d7443d4688e5aecfeee4c5a7985e234e74411728d9e19328501@ec2-3-232-218-211.compute-1.amazonaws.com:5432/d51sk61sh1kdvu'] %>
 
