@@ -6,11 +6,8 @@
 #
 default: &default
   adapter: postgresql
-  encoding: utf8
-  pool: 5
-  timeout: 5000
-  database: d51sk61sh1kdvu
-  host: ec2-3-232-218-211.compute-1.amazonaws.com
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 # development:
