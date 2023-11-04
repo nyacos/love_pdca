@@ -20,6 +20,15 @@
     <%= form.label :content, style: "display: block" %>
     <%= form.text_field :content %>
   </div>
+  
+  <div>
+  <label for="category">カテゴリ:</label>
+  <select name="category" id="category">
+    <option value="plan">Plan</option>
+    <option value="do">Do</option>
+    <option value="check">Check</option>
+  </select>
+  </div>
 
   <div>
     <%= form.submit "Create PLAN" %>
