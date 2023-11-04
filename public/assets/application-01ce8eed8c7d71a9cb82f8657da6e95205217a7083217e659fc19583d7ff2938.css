@@ -1,0 +1,17 @@
+.top-wrapper {
+  background-image: url(/assets/LOVEPDCA-0f7ea60f9af78042eeca2dfbd7ad96b7a6257fe54053dde00e952c5831ac5fc9.png);
+  height: calc(100vh - 134px);
+  position: relative;
+  background-position: center; }
+  .top-wrapper .top-inner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: white; }
+    @media screen and (max-width: 767px) {
+      .top-wrapper .top-inner-text {
+        font-size: 2.0rem; } }
