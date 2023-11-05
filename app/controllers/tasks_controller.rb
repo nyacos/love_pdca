@@ -38,7 +38,7 @@ class TasksController < ApplicationController
   
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "#{category_name.upcase} was successfully created." }
+        format.html { redirect_to task_url(@task), notice: "PLAN was successfully created." }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
