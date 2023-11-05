@@ -72,11 +72,11 @@ group :test do
   gem "webdrivers"
 end
 
-group :production do
-  gem 'pg', "~>1.4"
-end
+# group :production do
+#   gem 'pg', "~>1.4"
+# end
 
-
+gem 'pg', "~>1.4"
 
 gem "dockerfile-rails", ">= 1.5", :group => :development
 
