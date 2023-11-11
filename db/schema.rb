@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_08_132428) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "acts", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id", null: false
     t.string "title", null: false
     t.string "body", null: false
     t.datetime "created_at", null: false
@@ -29,14 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.integer "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "act_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "act_id", null: false
     t.string "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,8 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
 
   create_table "direct_messages", force: :cascade do |t|
     t.string "content"
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_direct_messages_on_room_id"
@@ -55,12 +59,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_entries_on_room_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -70,8 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
   end
 
   create_table "task_statuses", force: :cascade do |t|
-    t.integer "task_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,18 +91,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_133732) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "title"
+    t.integer "task_id"
     t.string "content"
-    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_tasks_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "avator"
     t.string "line_user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "role"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["line_user_id"], name: "index_users_on_line_user_id", unique: true
   end
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :plans
   resources :categories
   get 'admin_login', to: 'sessions#new'
   post 'admin_login', to: 'sessions#create'
