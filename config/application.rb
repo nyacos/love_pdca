@@ -18,5 +18,6 @@ module Lovepdca
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.assets.unknown_asset_fallback = true
   end
 end
