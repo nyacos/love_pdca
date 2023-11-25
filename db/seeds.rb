@@ -11,5 +11,5 @@ AdminUser.create!(
   is_admin: true
 )
 
-Task.create(title: "マッチングアプリで無差別に足跡をつける", content: "マッチングアプリで無差別に足跡をつける。（1日の上限まで）", category_id: "2")
-Task.create(title: "いいねが来た人の中から、気になる人にいいねを返す", content: "いいねが来た人の中から、気になる人にいいねを返す", category_id: "3")
+Plan.create(title: "マッチングアプリで無差別に足跡をつける", content: "マッチングアプリで無差別に足跡をつける。（1日の上限まで）", category_id: "2")
+Plan.create(title: "いいねが来た人の中から、気になる人にいいねを返す", content: "いいねが来た人の中から、気になる人にいいねを返す", category_id: "3")

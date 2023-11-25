@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_132428) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "act_id", null: false
+    t.bigint "user_id"
+    t.bigint "act_id"
     t.string "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,12 +80,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_132428) do
   end
 
   create_table "task_statuses", force: :cascade do |t|
-    t.bigint "task_id", null: false
+    t.bigint "plan_id", null: false
     t.bigint "user_id", null: false
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_task_statuses_on_task_id"
+    t.index ["plan_id"], name: "index_task_statuses_on_plan_id"
     t.index ["user_id"], name: "index_task_statuses_on_user_id"
   end
 
@@ -111,6 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_132428) do
   add_foreign_key "direct_messages", "users"
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
-  add_foreign_key "task_statuses", "tasks"
+  add_foreign_key "task_statuses", "plans"
   add_foreign_key "task_statuses", "users"
 end
