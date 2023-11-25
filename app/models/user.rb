@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :line_user_id, presence: true, uniqueness: true
   has_many :acts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :entries
   has_many :direct_messages
   has_many :rooms, through: :entries
