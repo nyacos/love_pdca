@@ -33,7 +33,7 @@ def callback
 
     if user.save
       session[:user_id] = user.id
-      redirect_to tasks_path, notice: 'ログインしました'
+      redirect_to plans_path, notice: 'ログインしました'
     else
       redirect_to root_path, notice: 'ログインに失敗しました'
     end
