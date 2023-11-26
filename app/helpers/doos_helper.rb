@@ -1,0 +1,2 @@
+module DoosHelper
+end
