@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Checks</h1>
+
+<div id="checks">
+  <% @checks.each do |check| %>
+    <p>
+      <%= link_to check.title , check %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New check", new_check_path %>
