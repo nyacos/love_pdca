@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @check %>
+
+<div>
+  <%= link_to "Edit this check", edit_check_path(@check) %> |
+  <%= link_to "Back to checks", checks_path %>
+
+  <%= button_to "Destroy this check", @check, method: :delete %>
+</div>
