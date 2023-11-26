@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Do</h1>
+
+<div id="doos">
+  <% @doos.each do |doo| %>
+    <p>
+      <%= link_to doo.title , doo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New do", new_doo_path %>
