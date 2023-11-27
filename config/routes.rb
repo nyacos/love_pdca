@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/line/webhook', to: 'line#webhook'
   resources :checks
   resources :doos
   resources :plans
