@@ -89,3 +89,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 
 gem 'font-awesome-sass'
+
+gem 'line-bot-api'
+
+gem 'dotenv-rails',groups: [:development, :test]
