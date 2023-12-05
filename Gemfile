@@ -92,4 +92,4 @@ gem 'font-awesome-sass'
 
 gem 'line-bot-api'
 
-gem 'dotenv-rails',groups: [:development, :test]
+gem 'dotenv', groups: [:development, :test]
