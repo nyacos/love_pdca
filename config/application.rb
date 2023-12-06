@@ -20,7 +20,9 @@ module Lovepdca
     # config.eager_load_paths << Rails.root.join("extras")
     config.assets.unknown_asset_fallback = true
     config.time_zone = 'Asia/Tokyo'
-    require 'dotenv'
-    Dotenv.load('.env')
+    if Rails.env.development? || Rails.env.test?
+      require 'dotenv'
+      Dotenv.load
+    end    
   end
 end

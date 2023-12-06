@@ -70,6 +70,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 end
 
 # group :production do
@@ -91,5 +92,3 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 gem 'line-bot-api'
-
-gem 'dotenv', groups: [:development, :test]
