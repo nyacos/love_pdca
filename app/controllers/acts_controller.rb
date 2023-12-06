@@ -1,5 +1,7 @@
 class ActsController < ApplicationController
   before_action :set_act, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:show]
+  
   helper_method :current_user
 
   # GET /acts or /acts.json
@@ -11,7 +13,7 @@ class ActsController < ApplicationController
   def show
     @act = Act.find(params[:id])
     @comments = @act.comments.includes(:user).order(created_at: :desc)
-    @comment = current_user.comments.new
+    @comment = current_user.comments.new if current_user
   end
 
   # GET /acts/new
