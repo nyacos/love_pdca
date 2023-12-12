@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+</head>
+<body>
+
+<h1>Chat Room</h1>
+
+<div id="chat">
+  <% @messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+
+<%= form_with(url: '/chats/new_message', id: 'message-form') do |form| %>
+  <%= form.text_field :message, id: 'message-input', autocomplete: 'off' %>
+  <%= form.submit 'Send' %>
+<% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatContainer = document.getElementById('chat');
+    const messageForm = document.getElementById('message-form');
+    const messageInput = document.getElementById('message-input');
+
+    // Action Cable のチャンネルに接続
+    const chatChannel = App.cable.subscriptions.create('ChatChannel', {
+      received: function(data) {
+        // 新しいメッセージが届いた時の処理
+        const newMessage = document.createElement('p');
+        newMessage.textContent = data.message;
+        chatContainer.appendChild(newMessage);
+      }
+    });
+
+    // メッセージ送信フォームのイベントハンドラ
+    messageForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const message = messageInput.value;
+      chatChannel.perform('speak', { message: message });
+      messageInput.value = ''; // 送信後に入力欄をクリア
+    });
+  });
+</script>
+
+</body>
+</html>
