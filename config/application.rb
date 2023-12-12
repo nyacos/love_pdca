@@ -20,6 +20,7 @@ module Lovepdca
     # config.eager_load_paths << Rails.root.join("extras")
     config.assets.unknown_asset_fallback = true
     config.time_zone = 'Asia/Tokyo'
+    config.action_cable.mount_path = '/cable'
     if Rails.env.development? || Rails.env.test?
       require 'dotenv'
       Dotenv.load

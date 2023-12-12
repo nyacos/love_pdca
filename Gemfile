@@ -92,3 +92,5 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 gem 'line-bot-api'
+
+gem 'actioncable'
