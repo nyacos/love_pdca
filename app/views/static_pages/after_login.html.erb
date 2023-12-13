@@ -5,4 +5,5 @@
   <h1 class="font-bold text-4xl">ログイン後のページ</h1>
   <% current_user = User.find(session[:user_id]) %>
   <%= "現在ログイン中のユーザーのID：#{current_user.id}" %>
+  <%= link_to 'LINEで通知が来ます！このアカウントを友達追加してください！', 'https://lin.ee/oZ2fRrr', target: '_blank' %> 
 </div>

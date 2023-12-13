@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'line_login_api/login', to: 'line_login_api#login'
   get 'line_login_api/callback', to: 'line_login_api#callback'
   resources :comments
+  get 'static_pages/after_login', to: 'static_pages#after_login'
   root 'static_pages#before_login'
 end

@@ -35,7 +35,7 @@ def callback
 
     if user.save
       session[:user_id] = user.id
-      redirect_to plans_path, notice: 'ログインしました'
+      redirect_to static_pages_after_login, notice: 'ログインしました'
     else
       redirect_to root_path, notice: 'ログインに失敗しました'
     end
