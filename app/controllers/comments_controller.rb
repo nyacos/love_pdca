@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_line_user!
   before_action :set_act
-
+  before_action :line_login_authenticate_user!
+  
   def index
     @comments = Comment.where(act_id: @act.id) 
   end
@@ -23,6 +23,10 @@ class CommentsController < ApplicationController
     unless session[:user_id]
       redirect_to root_path, alert: "ログインしてください。"
     end
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def set_act
