@@ -2,7 +2,7 @@ namespace :scheduler do
   desc "Send LINE notifications at a specific time daily"
   task send_daily_line_notification: :environment do
     # 指定した時刻（例: 12:00 PM）に実行するための時間を設定
-    scheduled_time = Time.zone.parse("05:00 AM")
+    scheduled_time = Time.zone.parse("09:00 PM")
 
     # 現在の日時を取得
     current_time = Time.zone.now
