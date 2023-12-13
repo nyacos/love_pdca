@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_line_user!
   before_action :set_act
 
   def index
@@ -15,6 +16,14 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def line_login_authenticate_user!
+    # LINEログインの認証処理を実装
+    # 例: セッションに保存されたユーザー情報を基に認証を行う
+    unless session[:user_id]
+      redirect_to root_path, alert: "ログインしてください。"
+    end
+  end
 
   def set_act
     @act = Act.find(params[:act_id])
