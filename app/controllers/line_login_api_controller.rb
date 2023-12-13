@@ -17,6 +17,7 @@ class LineLoginApiController < ApplicationController
     redirect_uri = CGI.escape(line_login_api_callback_url)
     state = session[:state]
     scope = 'profile%20openid'
+    prompt = 'consent'
     bot_prompt = 'aggressive'
 
     authorization_url = "#{base_authorization_url}?response_type=#{response_type}&client_id=#{client_id}&redirect_uri=#{redirect_uri}&state=#{state}&bot_prompt={bot_prompt}&scope=#{scope}"
