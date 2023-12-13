@@ -1,6 +1,6 @@
 class ActsController < ApplicationController
   before_action :set_act, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:show]
+  before_action :line_login_authenticate_user!, only: [:show]
   
   helper_method :current_user
 
@@ -65,6 +65,15 @@ class ActsController < ApplicationController
   end
 
   private
+  
+  def line_login_authenticate_user!
+    # LINEログインの認証処理を実装
+    # 例: セッションに保存されたユーザー情報を基に認証を行う
+    unless session[:user_id]
+      redirect_to root_path, alert: "ログインしてください。"
+    end
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
