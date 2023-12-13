@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :acts do
     resources :comments
   end
-  resources :rooms
   get '/after_login', to: 'static_pages#after_login'
   get 'line_login_api/login', to: 'line_login_api#login'
   get 'line_login_api/callback', to: 'line_login_api#callback'

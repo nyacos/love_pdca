@@ -60,16 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_132409) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "direct_messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_direct_messages_on_room_id"
-    t.index ["user_id"], name: "index_direct_messages_on_user_id"
-  end
-
   create_table "doos", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -77,24 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_132409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "entries", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_entries_on_room_id"
-    t.index ["user_id"], name: "index_entries_on_user_id"
-  end
-
   create_table "plans", force: :cascade do |t|
     t.string "title"
     t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -129,10 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_132409) do
   add_foreign_key "acts", "users"
   add_foreign_key "comments", "acts"
   add_foreign_key "comments", "users"
-  add_foreign_key "direct_messages", "rooms"
-  add_foreign_key "direct_messages", "users"
-  add_foreign_key "entries", "rooms"
-  add_foreign_key "entries", "users"
   add_foreign_key "task_statuses", "tasks"
   add_foreign_key "task_statuses", "users"
 end
