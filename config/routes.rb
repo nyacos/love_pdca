@@ -15,8 +15,5 @@ Rails.application.routes.draw do
   get 'line_login_api/login', to: 'line_login_api#login'
   get 'line_login_api/callback', to: 'line_login_api#callback'
   resources :comments
-  resources :chats, only: [:index], controller: 'chats', except: [:show] do
-    post :new_message, on: :collection
-  end
   root 'static_pages#before_login'
 end
