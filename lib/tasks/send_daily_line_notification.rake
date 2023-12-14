@@ -1,7 +1,7 @@
 namespace :scheduler do
   desc "Send LINE notifications at a specific time daily"
   task send_daily_line_notification: :environment do
-    # 指定した時刻（例: 12:00 PM）に実行するための時間を設定
+    # 指定した時刻に実行するための時間を設定
     scheduled_time = Time.zone.parse("09:00 PM")
 
     # 現在の日時を取得
@@ -15,15 +15,13 @@ namespace :scheduler do
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
       end
 
-      # ここにメッセージの構築やユーザーのループ処理を追加
-
       # メッセージを送信
       message = {
         type: "text",
-        text: "今日追加されたActionを紹介します。コメントしてみましょう!!https://lovepdca-2614e9cb3e4f.herokuapp.com/acts/4"
+        text: "最近追加されたActionを紹介します。コメントしてみましょう!!https://lovepdca-2614e9cb3e4f.herokuapp.com/acts/5"
       }
 
-      # 例えば、すべてのユーザーにメッセージを送信する場合
+      # すべてのユーザーにメッセージを送信
       User.find_each do |user|
         response = client.push_message(user.line_user_id, message)
         puts response
