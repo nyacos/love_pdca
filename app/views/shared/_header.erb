@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag 'LOVEPDCA.png' %>
+      <%= image_tag 'logo.png' %>
     <% end %>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,28 +11,32 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item dropdown dropdown-slide">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PDCA
+          </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to 'PLAN', plans_path , class: 'dropdown-item' %>
-            <%= link_to 'DO', doos_path , class: 'dropdown-item' %>
+            <%= link_to 'PLAN', plans_path, class: 'dropdown-item' %>
+            <%= link_to 'DO', doos_path, class: 'dropdown-item' %>
+            <%= link_to 'CHECK', checks_path, class: 'dropdown-item' %>
+            <%= link_to 'ACTION', acts_path, class: 'dropdown-item' %>
           </div>
         </li>
 
         <li class="nav-item">
-          <%= link_to 'CHECK', checks_path , class: 'nav-link' %>
-          <%= link_to 'ACTION', acts_path , class: 'nav-link' %>
+          <%= link_to 'LINE通知(友達登録)', 'https://lin.ee/oZ2fRrr', class: 'nav-link' %>
         </li>
 
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
-            <%= image_tag 'LOVEPDCA.png', size: '40x40', class: 'rounded-circle mr15'%>
+            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-item">ユーザーネーム</div>
             <div class="dropdown-divider"></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+            <%= link_to 'プロフィール(実装中)', '#', class: 'dropdown-item' %>
 
-            <%= link_to 'ログアウト', '#', class: 'dropdown-item' %>
+            <%= link_to 'ログアウト(実装中)', '#', class: 'dropdown-item' %>
           </div>
         </li>
       </ul>
