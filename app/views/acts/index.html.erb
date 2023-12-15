@@ -4,9 +4,8 @@
 
 <div id="acts">
   <% @acts.each do |act| %>
-    <%= render act %>
     <p>
-      <%= link_to "Show this Action", act %>
+      <%= link_to act.title , act %>
     </p>
   <% end %>
 </div>
