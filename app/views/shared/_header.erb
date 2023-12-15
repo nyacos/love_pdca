@@ -10,22 +10,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto main-nav align-items-center">
-        <li class="nav-item dropdown dropdown-slide">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            PDCA
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to 'PLAN', plans_path, class: 'dropdown-item' %>
-            <%= link_to 'DO', doos_path, class: 'dropdown-item' %>
-            <%= link_to 'CHECK', checks_path, class: 'dropdown-item' %>
-            <%= link_to 'ACTION', acts_path, class: 'dropdown-item' %>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to 'LINE通知(友達登録)', 'https://lin.ee/oZ2fRrr', class: 'nav-link' %>
-        </li>
+      <ul class="nav d-flex">
+      <li class="nav-item flex-fill">
+        <%= link_to 'PLAN', plans_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item flex-fill">
+        <%= link_to 'DO', doos_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item flex-fill">
+        <%= link_to 'CHECK', checks_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item flex-fill">
+        <%= link_to 'ACTION', acts_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item flex-fill">
+        <%= link_to 'LINE通知(友達登録)', 'https://lin.ee/oZ2fRrr', class: 'nav-link' %>
+      </li>
+    </ul>
 
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
