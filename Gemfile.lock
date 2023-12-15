@@ -110,6 +110,8 @@ GEM
       ffi (>= 1.15.0)
     execjs (2.9.1)
     ffi (1.16.3)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
     globalid (1.2.1)
@@ -265,6 +267,7 @@ DEPENDENCIES
   dartsass-sprockets
   dockerfile-rails (>= 1.5)
   dotenv-rails (~> 2.8.1)
+  font-awesome-rails
   font-awesome-sass
   importmap-rails
   jbuilder

@@ -91,6 +91,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap'
 
+gem 'font-awesome-rails'
+
 gem 'font-awesome-sass'
 
 gem 'jquery-rails'
