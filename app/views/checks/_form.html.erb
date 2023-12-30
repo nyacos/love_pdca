@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="row mb-3">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: check, url: [check], local: true do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control mb-3', id: 'js-new-check-content', row: 4 %>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+<div class="row mb-3">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: check, url: [check], local: true do |f| %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control mb-3', id: 'js-new-check-content', row: 4 %>
+      <%= f.submit class: 'btn btn-pink', style: 'background-color: pink; color: white;' %>
+    <% end %>
   </div>
 <% end %>

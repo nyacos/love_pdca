@@ -1,18 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-12">
+      <p style="color: green"><%= notice %></p>
 
-<%= render @act %>
+      <%= render @act %>
 
-<div>
-  <%= link_to "Edit this Action", edit_act_path(@act) %> |
-  <%= link_to "Back to Actions", acts_path %>
+      <div>
+        <%= link_to "Edit this Action", edit_act_path(@act) %> |
+        <%= link_to "Back to Actions", acts_path %>
 
-  <%= button_to "Destroy this Action", @act, method: :delete %>
-</div>
+        <%= button_to "Destroy this Action", @act, method: :delete %>
+      </div>
 
-<div>
-  <!-- コメントフォーム -->
-  <%= render 'comments/form', { act: @act, comment: @comment } %>
+      <div>
+        <!-- コメントフォーム -->
+        <%= render 'comments/form', { act: @act, comment: @comment } %>
 
-  <!-- コメントエリア -->
-  <%= render 'comments/comments', { comments: @comments } %>
+        <!-- コメントエリア -->
+        <%= render 'comments/comments', { comments: @comments } %>
+      </div>
+    </div>
+  </div>
 </div>

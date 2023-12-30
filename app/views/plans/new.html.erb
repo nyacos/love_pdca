@@ -1,9 +1,10 @@
-<h1>New plan</h1>
-
-<%= render "form", plan: @plan %>
-
-<br>
-
-<div>
-  <%= link_to "Back to plans", plans_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-12">
+      <h1>New plan</h1>
+      <%= render "form", plan: @plan %>
+      <br>
+      <%= link_to "Back to plans", plans_path %>
+    </div>
+  </div>
 </div>
