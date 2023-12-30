@@ -11,17 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form_with model: plan, url: [plan], local: true do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control mb-3', id: 'js-new-plan-content', row: 4 %>
+  <% end %>
+  <%= form_with model: plan, url: [plan], local: true do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control mb-3', id: 'js-new-plan-content', row: 4 %>
+    <%= f.submit class: 'btn btn-pink', style: 'background-color: pink; color: white;' %>
+  <% end %>
 <% end %>

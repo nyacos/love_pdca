@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-12">
+      <p style="color: green"><%= notice %></p>
 
-<%= render @plan %>
-
-<div>
-  <%= link_to "Edit this plan", edit_plan_path(@plan) %> |
-  <%= link_to "Back to plans", plans_path %>
-
-  <%= button_to "Destroy this plan", @plan, method: :delete %>
+      <%= render @plan %>
+      
+      <div>
+        <%= link_to "Edit this plan", edit_plan_path(@plan) %> |
+        <%= link_to "Back to plans", plans_path %>
+      
+        <%= button_to "Destroy this plan", @plan, method: :delete %>
+      </div>
+    </div>
+  </div>
 </div>

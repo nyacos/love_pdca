@@ -1,13 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-12">
+      <p style="color: green"><%= notice %></p>
 
-<h1>Actions</h1>
-
-<div id="acts">
-  <% @acts.each do |act| %>
-    <p>
-      <%= link_to act.title , act %>
-    </p>
-  <% end %>
+      <h1>Actions</h1>
+      
+      <div id="acts">
+        <% @acts.each do |act| %>
+          <p>
+            <%= link_to act.title , act %>
+          </p>
+        <% end %>
+      </div>
+      
+      <%= link_to "New Action", new_act_path %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New Action", new_act_path %>
