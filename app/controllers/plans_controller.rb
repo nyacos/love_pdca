@@ -1,25 +1,20 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: %i[ show edit update destroy ]
 
-  # GET /plans or /plans.json
   def index
     @plans = Plan.all
   end
 
-  # GET /plans/1 or /plans/1.json
   def show
   end
 
-  # GET /plans/new
   def new
     @plan = Plan.new
   end
 
-  # GET /plans/1/edit
   def edit
   end
 
-  # POST /plans or /plans.json
   def create
     @plan = Plan.new(plan_params)
 
@@ -34,7 +29,6 @@ class PlansController < ApplicationController
     end
   end
 
-  # PATCH/PUT /plans/1 or /plans/1.json
   def update
     respond_to do |format|
       if @plan.update(plan_params)
@@ -47,7 +41,6 @@ class PlansController < ApplicationController
     end
   end
 
-  # DELETE /plans/1 or /plans/1.json
   def destroy
     @plan.destroy
 
@@ -58,12 +51,10 @@ class PlansController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_plan
       @plan = Plan.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def plan_params
       params.require(:plan).permit(:title, :content)
     end

@@ -4,30 +4,24 @@ class ActsController < ApplicationController
   
   helper_method :current_user
 
-  # GET /acts or /acts.json
   def index
     @acts = Act.all
   end
 
-  # GET /acts/1 or /acts/1.json
   def show
     @act = Act.find(params[:id])
     @comments = @act.comments.includes(:user).order(created_at: :desc)
     @comment = current_user.comments.new if current_user
   end
 
-  # GET /acts/new
   def new
     @act = Act.new
   end
 
-  # GET /acts/1/edit
   def edit
   end
 
-  # POST /acts or /acts.json
   def create
-    # @act = Act.new(act_params)
     current_user = User.find(session[:user_id])
     @act = current_user.acts.build(act_params)
     respond_to do |format|
@@ -41,7 +35,6 @@ class ActsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /acts/1 or /acts/1.json
   def update
     respond_to do |format|
       if @act.update(act_params)
@@ -54,7 +47,6 @@ class ActsController < ApplicationController
     end
   end
 
-  # DELETE /acts/1 or /acts/1.json
   def destroy
     @act.destroy
 
@@ -78,12 +70,10 @@ class ActsController < ApplicationController
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_act
       @act = Act.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def act_params
       params.require(:act).permit(:title, :body)
     end
