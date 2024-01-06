@@ -1,25 +1,20 @@
 class DoosController < ApplicationController
   before_action :set_doo, only: %i[ show edit update destroy ]
 
-  # GET /doos or /doos.json
   def index
     @doos = Doo.all
   end
 
-  # GET /doos/1 or /doos/1.json
   def show
   end
 
-  # GET /doos/new
   def new
     @doo = Doo.new
   end
 
-  # GET /doos/1/edit
   def edit
   end
 
-  # POST /doos or /doos.json
   def create
     @doo = Doo.new(doo_params)
 
@@ -34,7 +29,6 @@ class DoosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /doos/1 or /doos/1.json
   def update
     respond_to do |format|
       if @doo.update(doo_params)
@@ -47,7 +41,6 @@ class DoosController < ApplicationController
     end
   end
 
-  # DELETE /doos/1 or /doos/1.json
   def destroy
     @doo.destroy
 
@@ -58,12 +51,10 @@ class DoosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_doo
       @doo = Doo.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def doo_params
       params.require(:doo).permit(:title, :content)
     end

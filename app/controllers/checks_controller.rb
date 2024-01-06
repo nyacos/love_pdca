@@ -1,25 +1,20 @@
 class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
 
-  # GET /checks or /checks.json
   def index
     @checks = Check.all
   end
 
-  # GET /checks/1 or /checks/1.json
   def show
   end
 
-  # GET /checks/new
   def new
     @check = Check.new
   end
 
-  # GET /checks/1/edit
   def edit
   end
 
-  # POST /checks or /checks.json
   def create
     @check = Check.new(check_params)
 
@@ -34,7 +29,6 @@ class ChecksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /checks/1 or /checks/1.json
   def update
     respond_to do |format|
       if @check.update(check_params)
@@ -47,7 +41,6 @@ class ChecksController < ApplicationController
     end
   end
 
-  # DELETE /checks/1 or /checks/1.json
   def destroy
     @check.destroy
 
@@ -58,12 +51,10 @@ class ChecksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_check
       @check = Check.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def check_params
       params.require(:check).permit(:title, :content)
     end
