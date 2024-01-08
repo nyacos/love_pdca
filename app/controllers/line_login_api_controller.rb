@@ -94,8 +94,8 @@ def get_line_user_id_token(code)
         grant_type: 'authorization_code',
         code: code,
         redirect_uri: redirect_uri,
-        client_id: '2000591847',
-        client_secret: '380462b61a63c24d38c2161cfc40d010'
+        client_id: ENV['CLIENT_ID'],
+        client_secret: ENV['CLIENT_SECRET']
       }
     }
     response = Typhoeus::Request.post(url, options)
