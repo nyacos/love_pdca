@@ -36,6 +36,8 @@ class ActsController < ApplicationController
   end
 
   def update
+    current_user = User.find(session[:user_id])
+    @act = current_user.acts.build(act_params)
     respond_to do |format|
       if @act.update(act_params)
         format.html { redirect_to act_url(@act), notice: "Action was successfully updated." }
