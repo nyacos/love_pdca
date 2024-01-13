@@ -4,8 +4,6 @@
       <% if notice.present? %>
         <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
       <% end %>
-      <h1 class="font-bold text-4xl">ログイン後のページ</h1>
-      <% current_user = User.find(session[:user_id]) %>
       <h4>LINEで通知が来ます！このアカウントを友達追加してください！(画像をタップ！)</h4>
       <%= link_to 'https://lin.ee/oZ2fRrr', target: '_blank' do %>
         <%= image_tag 'friend.jpg' %>
