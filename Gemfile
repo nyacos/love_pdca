@@ -102,3 +102,5 @@ gem 'jquery-rails'
 gem 'line-bot-api'
 
 gem 'actioncable'
+
+gem 'coffee-script'
