@@ -1,5 +1,6 @@
 class DoosController < ApplicationController
   before_action :set_doo, only: %i[ show edit update destroy ]
+  before_action :authorize_user, only: [:update, :destroy]
 
   def index
     @doos = Doo.all
@@ -57,5 +58,12 @@ class DoosController < ApplicationController
 
     def doo_params
       params.require(:doo).permit(:title, :content)
+    end
+
+    def authorize_user
+      unless @doo.user == current_user
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_to root_path
+      end
     end
 end
