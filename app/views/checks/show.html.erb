@@ -3,8 +3,8 @@
 <%= render @check %>
 
 <div>
-  <%= link_to "Edit this check", edit_check_path(@check) %> |
+  <%= link_to "Edit this check", edit_check_path(@check) if current_user == @check.user %> |
   <%= link_to "Back to checks", checks_path %>
 
-  <%= button_to "Destroy this check", @check, method: :delete %>
+  <%= button_to "Destroy this check", @check, method: :delete if current_user == @check.user %>
 </div>
